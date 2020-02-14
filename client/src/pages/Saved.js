@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import SearchResults from "../components/SearchResults";
+import SavedResult from "../components/SavedResult";
 
 
 class Saved extends Component {
@@ -9,6 +9,11 @@ class Saved extends Component {
     };
 
     componentDidMount() {
+        this.loadBooks();
+    }
+
+
+    loadBooks() {
         API.getSavedBooks()
             .then(res => this.setState({ savedBooks: res.data }))
             .then(data => {
@@ -18,8 +23,11 @@ class Saved extends Component {
     }
 
     handledelete = id => {
-        // console.log("delete function called");
-        // API.
+        console.log("delete function called");
+        console.log(id);
+        API.deleteBook(id)
+            .then(res => this.loadBooks())
+            .catch(err => console.log(err));
         //getSavedBooks again after deleting 
     }
 
@@ -37,14 +45,14 @@ class Saved extends Component {
                         // </h3>
 
 
-                        <SearchResults
+                        <SavedResult
                             id={info.googleId}
                             key={info._id}
                             title={info.title}
-                        // author={info.authors ? (info.authors[0]) : <p>No Authors</p>}
-                        // thumbnail={info.imageLinks ? (info.imageLinks.thumbnail) : <p>No image</p>}
-                        // description={info.description}
-                        // handleSave={this.handleSave}
+                            // author={info.authors ? (info.authors[0]) : <p>No Authors</p>}
+                            // thumbnail={info.imageLinks ? (info.imageLinks.thumbnail) : <p>No image</p>}
+                            // description={info.description}
+                            handledelete={this.handledelete}
 
                         />
 

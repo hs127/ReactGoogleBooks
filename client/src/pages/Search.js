@@ -3,7 +3,7 @@ import API from "../utils/API";
 import SearchForm from "../components/SearchForm";
 import SearchResults from "../components/SearchResults";
 import SaveBtn from "../components/SaveBtn";
-import { List, ListItem } from "../components/List";
+
 
 // this.handleSave = this.handleSave.bind(this);
 
@@ -42,7 +42,7 @@ class Search extends Component {
         // console.log("Save the title, descriptin, and save = true");
         // // console.log(title1);
         // console.log(id)
-        console.log(bookData.id);
+
         API.saveBook({
             googleId: bookData.id,
             title: bookData.title,

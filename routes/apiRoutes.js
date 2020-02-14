@@ -18,15 +18,16 @@ router.post("/books", function (req, res) {
 
 router.get("/books", function (req, res) {
     console.log("get Call");
-    console.log(res);
     db.Book.find({})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 });
 
 router.delete("/books/:id", function (req, res) {
+    console.log("dele route");
+    console.log(req.params);
     db.Book
-        .findById({ _id: req.params.id })
+        .findOneAndDelete({ googleId: req.params.id })
         .then(dbModel => dbModel.remove())
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));

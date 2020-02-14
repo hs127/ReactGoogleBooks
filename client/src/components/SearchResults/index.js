@@ -10,8 +10,8 @@ function SearchResults(props) {
 
       <li className="list-group-item">
         {/* {data.volumeInfo.imageLinks ? <img src={data.volumeInfo.imageLinks.thumbnail} /> : <p>No image</p>} */}
-        <h1 id="key">{props.id}</h1>
-        <h3>Title: <p id="title"> {props.title}</p></h3>
+        {/* <h1 id="key">{props.id}</h1> */}
+        <h3>Title: {props.title}</h3>
         <img src={props.thumbnail} />
         <h4>Author: {props.author} </h4>
         <h4>Description</h4> <p>{props.description}</p>

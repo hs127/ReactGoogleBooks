@@ -13,7 +13,7 @@ export default {
         return axios.get("/api/books");
     },
     deleteBook: function (id) {
-        return axios.get("/api/books/" + id)
+        return axios.delete("/api/books/" + id)
     }
 };
 
