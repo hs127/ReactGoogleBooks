@@ -5,7 +5,7 @@ import "./style.css";
 // That way we don't have to define them all individually
 function SaveBtn(props) {
   return (
-    <button type="submit" onClick={props.handleSave} className="btn btn-success">
+    <button type="submit" {...props} className="btn btn-success">
       Save
         </button>
   );
